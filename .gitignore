@@ -1,0 +1,6 @@
+*\.DS*
+.sass-cache/
+node_modules/
+platforms/
+plugins/
+www/
