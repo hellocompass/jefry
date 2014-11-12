@@ -2,6 +2,8 @@
 
 var React = require('react/addons');
 
+var SessionActions = require('../../actions/session_actions');
+
 var SessionStore = require('../../stores/session_store');
 var EmailSignupForm = require('./email_signup_form');
 var LoginButtons = require('./login_buttons');
@@ -46,10 +48,6 @@ var LoginForm = React.createClass({
 
   componentDidMount: function () {
     SessionStore.addChangeListener(this._onChange);
-    // window.cordova.plugins.Keyboard.show();
-    window.addEventListener('native.keyboardshow', function ( e ) {
-      console.log( e );
-    });
   },
 
   componentWillUnmount: function () {
@@ -73,7 +71,9 @@ var LoginForm = React.createClass({
 
   _onChange: function () {
     user = SessionStore.currentUser();
-    if ( !user || !user.id ) {
+    if ( user && user.id ) {
+      SessionActions.notifyLogin();
+    } else {
       this.setState({
         emailSignup: this.state.emailSignup,
         error: true

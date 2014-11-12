@@ -5,8 +5,9 @@ var XhrHelper = function () {
 
 XhrHelper.prototype.request = function (type, url, opts, callback) {
   var xhr = new XMLHttpRequest(),
-      csrfHeaders = getCSRFHeaders(),
       pd;
+
+  _csrfHeaders = getCSRFHeaders()
 
   xhr.withCredentials = true;
 
@@ -17,11 +18,12 @@ XhrHelper.prototype.request = function (type, url, opts, callback) {
 
   xhr.open(type, url);
 
-  xhr.setRequestHeader("X-CSRF-Param", csrfHeaders.param);
-  xhr.setRequestHeader("X-CSRF-Token", csrfHeaders.token);
+  // xhr.setRequestHeader("Access-Control-Request-Headers", 'X-CSRF-Param, X-CSRF-Token')
+  xhr.setRequestHeader("X-CSRF-Param", _csrfHeaders.param);
+  xhr.setRequestHeader("X-CSRF-Token", _csrfHeaders.token);
 
   if (type === 'POST' && opts) {
-    if ( opts.authenticity_token == null ) opts.authenticity_token = csrfHeaders.token;
+    if ( opts.authenticity_token == null ) opts.authenticity_token = _csrfHeaders.token;
     pd = JSON.stringify(opts);
     xhr.setRequestHeader('Content-Type', 'application/json');
   }
@@ -47,8 +49,16 @@ XhrHelper.prototype.get = XhrHelper.prototype.request.bind(this, 'GET');
 XhrHelper.prototype.post = XhrHelper.prototype.request.bind(this, 'POST');
 
 var setCSRFHeaders = function ( xhr ) {
-  var csrf_param = xhr.getResponseHeader('X-CSRF-Param');
-  var csrf_token = xhr.getResponseHeader('X-CSRF-Token');
+  var csrf_param, csrf_token;
+  var res = JSON.parse( xhr.response );
+
+  if ( !!res.csrf_param && !!res.csrf_token ) {
+    csrf_param = res.csrf_param;
+    csrf_token = res.csrf_token;
+  } else {
+    csrf_param = xhr.getResponseHeader('X-CSRF-Param');
+    csrf_token = xhr.getResponseHeader('X-CSRF-Token');
+  }
 
   if (csrf_param) {
     _csrfHeaders.param = csrf_param;

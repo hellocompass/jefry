@@ -2,6 +2,8 @@ var EventEmitter = require('event-emitter');
 var React = require('react/addons');
 
 var AppDispatcher = require('../dispatchers/app_dispatcher');
+var AppConstants = require('../constants/app_constants')
+
 var SessionActions = require('../actions/session_actions');
 var SessionConstants = require('../constants/session_constants');
 
@@ -9,12 +11,6 @@ var CHANGE_EVENT = 'change';
 var _currentUser, _userErrors;
 
 var SessionStore = React.addons.update(EventEmitter.prototype, {$merge: {
-
-  initialize: function () {
-    _currentUser = blackIn.context.current_user.user;
-    // don't expose session info globally
-    blackIn.context.current_user = null;
-  },
 
   currentUser: function () {
     return _currentUser;
@@ -51,6 +47,9 @@ var SessionStore = React.addons.update(EventEmitter.prototype, {$merge: {
     var action = payload.action;
 
     switch(action.actionType) {
+      case AppConstants.SET_CONTEXT:
+        SessionStore._setCurrentUser( action.data.current_user.user )
+        break;
       case SessionConstants.EMAIL_LOGIN:
         SessionStore._loginWithEmail( action.data );
         break;
@@ -69,6 +68,11 @@ var SessionStore = React.addons.update(EventEmitter.prototype, {$merge: {
   }),
 
   // private
+
+  _setCurrentUser: function ( user ) {
+    _currentUser = user;
+    SessionStore.emitChange();
+  },
 
   _ensureCurrentUser: function () {
     if ( !SessionStore.currentUser() ) {
@@ -106,8 +110,7 @@ var SessionStore = React.addons.update(EventEmitter.prototype, {$merge: {
 
   _handleLoginResponse: function ( err, response ) {
     if ( err ) {
-      // alert("Well, that didn't work...try again?");
-      SessionStore.loginSuccess();
+      alert("Well, that didn't work...try again?");
     } else if ( response.status === 200 ) {
       _currentUser = response.data.user;
       SessionStore.loginSuccess();

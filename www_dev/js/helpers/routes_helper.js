@@ -13,16 +13,20 @@ var setUrlRoot = function () {
 
 // API urls
 
+RoutesHelper.prototype.api_bootstrap_url = function () {
+  return _urlRoot + '/api/app/bootstrap';
+};
+
+RoutesHelper.prototype.api_groups_url = function () {
+  return _urlRoot + '/api/groups';
+};
+
 RoutesHelper.prototype.api_signin_url = function () {
   return _urlRoot + '/api/sessions';
 };
 
 RoutesHelper.prototype.api_users_url = function () {
   return _urlRoot + '/api/users';
-};
-
-RoutesHelper.prototype.api_groups_url = function () {
-  return _urlRoot + '/api/groups';
 };
 
 // App paths

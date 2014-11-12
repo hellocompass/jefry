@@ -20,6 +20,13 @@ var AppDispatcher = React.addons.update(Flux.Dispatcher.prototype, {$merge: {
       source: 'STORE_ACTION',
       action: action
     });
+  },
+
+  handleAppRequest: function ( action ) {
+    this.dispatch({
+      source: 'GLOBAL_ACTION',
+      action: action
+    });
   }
 
 }});
