@@ -3,8 +3,9 @@
 @import 'foundation';
 @import 'core';
 
-@import 'components/flash';
 @import 'components/home';
-@import 'components/login_form';
+@import 'components/login/flash';
+@import 'components/login/login_form';
+@import 'components/core/navigation/nav_top_bar';
 
 @import 'index'

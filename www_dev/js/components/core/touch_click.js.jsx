@@ -76,7 +76,7 @@ var TouchClick = React.createClass({
   },
 
   onClick: function() {
-    if ( this.state.touched && this.state.enabled )
+    if ( this.state.touched || !this.state.enabled )
       return false
     this.setState(this.defaults)
     this.handler.apply(this, arguments)

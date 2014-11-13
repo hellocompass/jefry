@@ -22,6 +22,7 @@ var AppDispatcher = require('../dispatchers/app_dispatcher');
 var GroupConstants = require('../constants/group_constants');
 var SessionConstants = require('../constants/session_constants');
 
+var App = require('../components/core/app');
 var GroupForm = require('../components/groups/group_form');
 var Home = require('../components/home');
 var LoginForm = require('../components/login/login_form');
@@ -35,6 +36,7 @@ var BlackInRouter = (function ( _super ) {
 
   BlackInRouter.prototype.initialize = function () {
     this.appContainer = document.getElementById('app-container');
+    React.render( <App />, this.appContainer );
   };
 
   BlackInRouter.prototype.routes = {
@@ -52,7 +54,7 @@ var BlackInRouter = (function ( _super ) {
   };
 
   BlackInRouter.prototype.signin = function () {
-    this.changePage( <LoginForm /> );
+    this.changePage( <LoginForm />, {hideNav: true} );
   };
 
   BlackInRouter.prototype.newAnnotation = function () {
@@ -76,15 +78,15 @@ var BlackInRouter = (function ( _super ) {
     this.changePage( <DiscussionBox data={ data } /> );
   };
 
-  BlackInRouter.prototype.changePage = function ( component ) {
+  BlackInRouter.prototype.changePage = function ( component, options ) {
+    if ( options == null ) options = {};
+
     if ( this.initialRoute ) return;
     this.closeModal();
 
-    var container = document.getElementById('app-container');
-
     React.render(
-      component,
-      container
+      <App page={ component } topBar={ !options.hideNav } />,
+      this.appContainer
     );
   };
 

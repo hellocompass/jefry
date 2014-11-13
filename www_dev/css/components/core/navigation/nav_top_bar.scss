@@ -1,0 +1,22 @@
+#nav-top-bar-component {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 25px 10px 5px;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  background: #000;
+
+  h3 {
+    display: inline;
+    vertical-align: middle;
+    text-transform: uppercase;
+  }
+
+  i {
+    position: absolute;
+    left: 10px;
+    font-size: 1.33rem;
+  }
+}
