@@ -1,0 +1,31 @@
+#nav-side-bar-component {
+  background: #000;
+  bottom: 0;
+  left: -250px;
+  padding: 25px 20px 10px;
+  position: absolute;
+  top: 0;
+  transition: left 0.1s ease 0;
+  width: 250px;
+  z-index: 2;
+
+  &.active {
+    left: 0;
+  }
+
+  ul {
+    li {
+      margin-bottom: 1rem;
+
+      a {
+        display: block;
+        font-family: $sans_bold;
+        color: $grey;
+
+        &.active {
+          color: $white;
+        }
+      }
+    }
+  }
+}

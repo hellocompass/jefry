@@ -5,6 +5,11 @@ body {
   background: #000; /* TODO: variable-itize */
 }
 
+#app-container {
+  overflow-x: hidden;
+  height: 100%;
+}
+
 .header-box {
   text-align: center;
   margin: 4.21rem 0 2.37rem 0;

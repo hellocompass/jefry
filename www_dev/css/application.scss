@@ -3,9 +3,12 @@
 @import 'foundation';
 @import 'core';
 
-@import 'components/home';
+@import 'components/core/app';
+@import 'components/core/app';
+@import 'components/core/navigation/nav_side_bar';
+@import 'components/core/navigation/nav_top_bar';
 @import 'components/login/flash';
 @import 'components/login/login_form';
-@import 'components/core/navigation/nav_top_bar';
+@import 'components/home';
 
 @import 'index'

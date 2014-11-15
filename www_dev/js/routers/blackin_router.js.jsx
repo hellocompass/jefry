@@ -57,27 +57,6 @@ var BlackInRouter = (function ( _super ) {
     this.changePage( <LoginForm />, {hideNav: true} );
   };
 
-  BlackInRouter.prototype.newAnnotation = function () {
-    var queryParams = blackIn.helpers.url.queryObject();
-    var url = blackIn.helpers.url.parse( queryParams.url )
-
-    var annotation = {
-      text: queryParams.text,
-      url: url.href,
-      base_domain: url.hostname
-    }
-
-    this.changePage( <DiscussionBox data={ {annotation: annotation, comments: []} } /> );
-  };
-
-  BlackInRouter.prototype.showAnnotation = function () {
-    var data = {
-      annotation: AnnotationStore.getById(arguments[0]),
-      comments: CommentStore.getAllAsList()
-    };
-    this.changePage( <DiscussionBox data={ data } /> );
-  };
-
   BlackInRouter.prototype.changePage = function ( component, options ) {
     if ( options == null ) options = {};
 
@@ -85,7 +64,7 @@ var BlackInRouter = (function ( _super ) {
     this.closeModal();
 
     React.render(
-      <App page={ component } topBar={ !options.hideNav } />,
+      <App page={ component } topBar={ !options.hideNav } sideBar={ false } />,
       this.appContainer
     );
   };

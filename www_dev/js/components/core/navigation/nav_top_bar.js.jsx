@@ -6,11 +6,11 @@ var NavTopBar = React.createClass({
   render: function () {
     return(
       <header id="nav-top-bar-component">
-        <h3>
-          <TouchClick className="ion-navicon-round" nodeName="i"
+        <h4>
+          <TouchClick className="ion-navicon" nodeName="i"
             handler={ this.props.menuHandler } />
           Black <span className="bold">In</span>
-        </h3>
+        </h4>
       </header>
     )
   }
