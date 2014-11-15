@@ -22,7 +22,7 @@ var Home = React.createClass({
             +
           </TouchClick>
 
-          <h3>Create a BlackIn group</h3>
+          <h4>Create a BlackIn group</h4>
         </div>
       </div>
     )

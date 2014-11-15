@@ -1,5 +1,7 @@
 var BlackInRouter = require('./routers/blackin_router');
 
+var _ = require('underscore');
+
 var RoutesHelper = require('./helpers/routes_helper');
 var UrlHelper = require('./helpers/url_helper');
 var XhrHelper = require('./helpers/xhr_helper');
@@ -45,6 +47,21 @@ var blackIn = {
   bindEvents: function () {
     document.addEventListener('deviceready', this.goHome, false);
     document.addEventListener('DOMContentLoaded', this.goHome, false);
+    this.bindRoutingEvents();
+  },
+
+  bindRoutingEvents: function () {
+    var navHandler = function ( e ) {
+      if ( e.target.tagName === 'A' ) {
+        e.preventDefault();
+        blackIn.router.navigate(
+          e.target.getAttribute('href'), {trigger: true}
+        );
+      }
+    }
+
+    document.body.addEventListener('click', navHandler);
+    document.body.addEventListener('touchend', navHandler);
   },
 
   goHome: function ( e ) {
@@ -64,4 +81,5 @@ var blackIn = {
 }
 
 window.blackIn = blackIn;
+window._ = _;
 blackIn.initialize();
