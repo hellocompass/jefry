@@ -67,6 +67,7 @@ var blackIn = {
     _readyEvents.push( e );
     if ( _readyEvents.length < 3 ) return;
 
+    console.log('LETS GOOOOOO');
     blackIn.bindRoutingEvents();
     blackIn.router.navigate( blackIn.firstPage() );
   },

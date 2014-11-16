@@ -11,12 +11,12 @@
 
   .create-plus {
     display: block;
-    font-size: 4.21rem;
-    height: 5.62rem;
+    font-size: 5.62rem;
+    height: 7.02rem;
     line-height: 1;
     margin: 0 auto;
     padding: .56rem;
-    width: 5.62rem;
+    width: 7.02rem;
   }
 
   h1 {
@@ -26,6 +26,7 @@
 
   h4 {
     margin-top: 1.33rem;
+    font-family: $sans_bold;
   }
 
   .header-box {
@@ -33,6 +34,6 @@
   }
 
   .wrapper {
-    padding: 60px 10px 10px 10px;
+    padding: 45px 10px 10px 10px;
   }
 }

@@ -3,12 +3,13 @@
 @import 'foundation';
 @import 'core';
 
-@import 'components/core/app';
+@import 'components/contacts/contact';
 @import 'components/core/app';
 @import 'components/core/navigation/nav_side_bar';
 @import 'components/core/navigation/nav_top_bar';
+@import 'components/groups/group_form';
+@import 'components/home';
 @import 'components/login/flash';
 @import 'components/login/login_form';
-@import 'components/home';
 
-@import 'index'
+@import 'index';

@@ -48,7 +48,7 @@ var SessionStore = React.addons.update(EventEmitter.prototype, {$merge: {
 
     switch(action.actionType) {
       case AppConstants.SET_CONTEXT:
-        SessionStore._setCurrentUser( action.data.current_user.user )
+        SessionStore._setCurrentUser( action.data.current_user.user );
         break;
       case SessionConstants.EMAIL_LOGIN:
         SessionStore._loginWithEmail( action.data );

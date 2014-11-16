@@ -9,7 +9,8 @@ var App = React.createClass({
     return {
       page: this.props.page,
       topBar: false,
-      sideBar: false
+      sideBar: false,
+      title: this.props.title
     };
   },
 
@@ -17,7 +18,8 @@ var App = React.createClass({
     this.setState({
       page: props.page,
       topBar: props.topBar,
-      sideBar: props.sideBar
+      sideBar: props.sideBar,
+      title: props.title
     });
   },
 
@@ -41,7 +43,8 @@ var App = React.createClass({
   },
 
   render: function () {
-    this.topBar = this.state.topBar ? <NavTopBar menuHandler={ this.toggleSidebar } /> : null
+    this.topBar = this.state.topBar ? <NavTopBar menuHandler={ this.toggleSidebar }
+                                                 title={ this.state.title } /> : null
     this.sideBar = this.state.sideBar ? <NavSideBar closeHandler={ this.toggleSidebar } /> : null
 
     return(

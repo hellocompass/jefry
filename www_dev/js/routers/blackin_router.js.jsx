@@ -46,7 +46,7 @@ var BlackInRouter = (function ( _super ) {
   };
 
   BlackInRouter.prototype.newGroup = function () {
-    this.changePage( <GroupForm /> )
+    this.changePage( <GroupForm />, {title: 'Create a BlackIn'} )
   };
 
   BlackInRouter.prototype.home = function () {
@@ -64,7 +64,10 @@ var BlackInRouter = (function ( _super ) {
     this.closeModal();
 
     React.render(
-      <App page={ component } topBar={ !options.hideNav } sideBar={ false } />,
+      <App page={ component }
+           topBar={ !options.hideNav }
+           sideBar={ false }
+           title={ options.title } />,
       this.appContainer
     );
   };
