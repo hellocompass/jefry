@@ -1,0 +1,111 @@
+.contact-component {
+  padding: 0 3px;
+
+  &.active {
+    background: $black;
+    color: $white;
+
+    .contact-inner-wrapper {
+      border-color: $white;
+    }
+
+    .contact-toggle-state {
+      .icon {
+        background: transparent;
+        border-color: $white;
+
+        &:before {
+          content: '-';
+          line-height: 0.9rem;
+          vertical-align: top;
+        }
+      }
+    }
+
+    &:first-child {
+      border: none;
+
+      .contact-inner-wrapper {
+        border-top: solid $white 1px;
+      }
+    }
+
+    .image-wrapper {
+      border: solid $white 3px;
+    }
+
+    &:last-child {
+      .contact-inner-wrapper {
+        border-bottom: solid 1px $white;
+      }
+    }
+  }
+
+  .contact-inner-wrapper {
+    border-top: solid $black 1px;
+    padding: 20px 10px;
+  }
+
+  .contact-toggle-state {
+    @include flex(1 1 20%);
+    font-size: 1.33rem;
+    line-height: 55px;
+    margin: 0;
+    padding: 5px 0 0 20px;
+    text-align: center;
+    vertical-align: middle;
+
+    .icon {
+      background: $black;
+      border: solid $black 2px;
+      border-radius: 3px;
+      color: $white;
+      display: inline-block;
+      font-family: $sans_bold;
+      height: 1.2rem;
+      line-height: 1.1rem;
+      margin: 0;
+      vertical-align: middle;
+      width: 1.2rem;
+
+      &:before {
+        content: '+';
+      }
+    }
+  }
+
+  &:first-child {
+    border-top: solid $black 1px;
+
+    .contact-inner-wrapper {
+      border: none;
+    }
+  }
+
+  .image-box {
+    @include flex(1 1 20%);
+  }
+
+  .image-wrapper {
+    border: solid $black 2px;
+    border-radius: 30px;
+    height: 60px;
+    overflow: hidden;
+    width: 60px;
+  }
+
+  &:last-child {
+    .contact-inner-wrapper {
+      border-bottom: solid 1px $black;
+    }
+  }
+
+  .name {
+    @include flex(3 3 60%);
+    font-size: 1.33rem;
+    line-height: 55px;
+    margin: 0;
+    padding: 5px 0 0 15px;
+    vertical-align: middle;
+  }
+}

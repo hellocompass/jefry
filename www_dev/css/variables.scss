@@ -5,3 +5,21 @@ $grey: #ccc;
 $white: #fff;
 $black: #000;
 $red: #e6484e;
+
+@mixin flex-display() {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex-wrap($value) {
+  -ms-flex-wrap: $value;
+  -webkit-flex-wrap: $value;
+  flex-wrap: $value;
+}
+
+@mixin flex($values) {
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}

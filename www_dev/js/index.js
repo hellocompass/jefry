@@ -15,10 +15,10 @@ var _readyEvents = [];
 
 var blackIn = {
   initialize: function () {
-    blackIn.router = new BlackInRouter();
     this.bindEvents();
-    blackIn.env = 'development';
+    blackIn.router = new BlackInRouter();
     this.initializeHelpers();
+    blackIn.env = 'development';
     blackIn.bootstrapContext();
   },
 
@@ -38,7 +38,7 @@ var blackIn = {
           alert('Bootstrap data failed');
         } else {
           AppActions.distributeContext( response.data );
-          blackIn.goHome( 'bootstrapped!' )
+          blackIn.goHome( {type: 'bootstrapped!'} )
         }
       }
     )
@@ -64,12 +64,27 @@ var blackIn = {
     document.body.addEventListener('touchend', navHandler);
   },
 
+  bindRoutingEvents: function () {
+    var navHandler = function ( e ) {
+      if ( e.target.tagName === 'A' ) {
+        e.preventDefault();
+        blackIn.router.navigate(
+          e.target.getAttribute('href'), {trigger: true}
+        );
+      }
+    }
+
+    document.body.addEventListener('click', navHandler);
+    document.body.addEventListener('touchend', navHandler);
+  },
+
   goHome: function ( e ) {
     _readyEvents.push( e );
     if ( _readyEvents.length < 3 ) return;
 
-    console.log('LETTTSSSSS GOOOOOO');
-    blackIn.router.navigate( this.firstPage() );
+    console.log('LETS GOOOOOO');
+    blackIn.bindRoutingEvents();
+    blackIn.router.navigate( blackIn.firstPage() );
   },
 
   firstPage: function () {

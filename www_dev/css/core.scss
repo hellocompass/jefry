@@ -8,6 +8,7 @@ h1 { font-size: 2.96rem; }
 h2 { font-size: 2.37rem; }
 h3 { font-size: 1.78rem; }
 h4 { font-size: 1.33rem; }
+h5 { font-size: 1rem; }
 
 ul {
   list-style: none;
@@ -20,6 +21,10 @@ a {
 
 .bold {
   font-family: $sans_bold;
+}
+
+.thin {
+  font-family: $default_font;
 }
 
 .button {
@@ -50,4 +55,9 @@ a {
 
 .clickable {
   text-decoration: underline;
+}
+
+.flexible {
+  @include flex-display();
+  @include flex-wrap(nowrap);
 }
