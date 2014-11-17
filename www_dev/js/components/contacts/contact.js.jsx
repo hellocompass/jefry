@@ -30,7 +30,7 @@ var Contact = React.createClass({
         <div className="contact-inner-wrapper flexible">
           <div className="image-box">
             <div className="image-wrapper">
-              <img src="../img/logo.png" height="60" width="60" />
+              <img src="../img/logo.png" height="50" width="50" />
             </div>
           </div>
 

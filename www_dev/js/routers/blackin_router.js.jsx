@@ -23,9 +23,12 @@ var GroupConstants = require('../constants/group_constants');
 var SessionConstants = require('../constants/session_constants');
 
 var App = require('../components/core/app');
+var Feed = require('../components/groups/feed');
 var GroupForm = require('../components/groups/group_form');
 var Home = require('../components/home');
 var LoginForm = require('../components/login/login_form');
+
+var GroupStore = require('../stores/group_store');
 
 var BlackInRouter = (function ( _super ) {
   __extends(BlackInRouter, _super);
@@ -41,8 +44,17 @@ var BlackInRouter = (function ( _super ) {
 
   BlackInRouter.prototype.routes = {
     'groups/new' : 'newGroup',
+    'groups/:id' : 'showGroup',
     'home' : 'home',
     'signin' : 'signin',
+  };
+
+  BlackInRouter.prototype.showGroup = function ( id ) {
+    var _this = this;
+
+    GroupStore.getGroup( id, function ( group ) {
+      _this.changePage( <Feed />, {title: group.name} )
+    });
   };
 
   BlackInRouter.prototype.newGroup = function () {
@@ -101,6 +113,9 @@ var BlackInRouter = (function ( _super ) {
         break;
       case GroupConstants.NEW_GROUP:
         blackIn.router.navigate( blackIn.helpers.routes.new_group_path() );
+        break;
+      case GroupConstants.NAVIGATE:
+        blackIn.router.navigate( action.data.route )
         break;
     }
 

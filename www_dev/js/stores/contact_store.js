@@ -42,6 +42,10 @@ var ContactStore = React.addons.update(EventEmitter.prototype, {$merge: {
     return list;
   },
 
+  getActiveContacts: function () {
+    return _( this.contactsList() ).where({ active: true });
+  },
+
   toggleActiveContact: function ( id ) {
     _contacts[id].active = !_contacts[id].active;
     this.emitChange();

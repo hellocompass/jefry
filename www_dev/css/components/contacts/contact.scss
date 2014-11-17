@@ -43,13 +43,13 @@
 
   .contact-inner-wrapper {
     border-top: solid $black 1px;
-    padding: 20px 10px;
+    padding: 12px 10px;
   }
 
   .contact-toggle-state {
     @include flex(1 1 20%);
     font-size: 1.33rem;
-    line-height: 55px;
+    line-height: 45px;
     margin: 0;
     padding: 5px 0 0 20px;
     text-align: center;
@@ -89,9 +89,9 @@
   .image-wrapper {
     border: solid $black 2px;
     border-radius: 30px;
-    height: 60px;
+    height: 50px;
     overflow: hidden;
-    width: 60px;
+    width: 50px;
   }
 
   &:last-child {
@@ -103,7 +103,7 @@
   .name {
     @include flex(3 3 60%);
     font-size: 1.33rem;
-    line-height: 55px;
+    line-height: 45px;
     margin: 0;
     padding: 5px 0 0 15px;
     vertical-align: middle;

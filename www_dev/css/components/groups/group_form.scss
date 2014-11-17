@@ -5,20 +5,31 @@
 
   .contacts-label {
     font-family: $sans_bold;
-    font-size: 1.33rem;
-    margin: 10px;
+    font-size: 1rem;
+    margin: 5px 10px;
     padding: 0;
   }
 
   #contacts-picker {
     background: $white;
-    bottom: 123px;
+    bottom: 114px;
     color: $black;
-    margin-bottom: 0;
+    margin: 0;
     overflow-y: scroll;
     position: absolute;
-    top: 75px;
+    top: 102px;
     width: 100%;
+  }
+
+  input {
+    margin-bottom: 0;
+    font-size: 1rem;
+    padding: 20px;
+    height: 67px;
+  }
+
+  input[placeholder] {
+    font-family: $thin_italic;
   }
 
   .submit-group {
@@ -27,5 +38,6 @@
     margin: 0;
     position: absolute;
     width: 100%;
+    border: none;
   }
 }

@@ -5,6 +5,7 @@ var Contact = require('../contacts/contact');
 
 var ContactStore = require('../../stores/contact_store');
 var ContactActions = require('../../actions/contact_actions');
+var GroupActions = require('../../actions/group_actions');
 
 var GroupForm = React.createClass({
 
@@ -19,6 +20,12 @@ var GroupForm = React.createClass({
 
   componentWillUnmount: function () {
     ContactStore.removeChangeListener( this._onChange );
+  },
+
+  createGroup: function () {
+    GroupActions.createGroup({
+      name: this.refs.groupName.getDOMNode().value
+    });
   },
 
   render: function () {
@@ -38,7 +45,7 @@ var GroupForm = React.createClass({
 
     return(
       <form id="group-form-component">
-        <input ref="groupName" type="text" placeholder="name this BlackIn" />
+        <input ref="groupName" type="text" placeholder="Name this BlackIn" />
 
         <p className="contacts-label">Who do you want to BlackIn with?</p>
         <ul id="contacts-picker">
