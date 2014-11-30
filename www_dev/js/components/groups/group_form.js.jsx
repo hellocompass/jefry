@@ -28,6 +28,10 @@ var GroupForm = React.createClass({
     });
   },
 
+  getContacts: function () {
+    ContactActions.getAll();
+  },
+
   render: function () {
     var contacts;
 
@@ -39,7 +43,16 @@ var GroupForm = React.createClass({
       })
     } else {
       contacts = [
-        <li className="no-contacts">+ invite friends</li>
+        <TouchClick handler={ this.getContacts } className="no-contacts" nodeName="li">
+          <p>
+            Whoops! BlackIn lets you invite friends from your contacts, but we
+            need permission. Give BlackIn permission in&nbsp;
+            <strong>Settings > Privacy > Contacts</strong>.
+          </p>
+          <i className="ion-ios7-plus-outline"></i>
+          <br />
+          invite friends
+        </TouchClick>
       ]
     }
 
