@@ -29,8 +29,8 @@ var FlashComponent = React.createClass({
   },
 
   render: function () {
-    var listItems = this.state.messages.map(function (msg) {
-      return(<li>{ msg }</li>);
+    var listItems = this.state.messages.map( function ( msg ) {
+      return( <li>{ msg }</li> );
     });
 
     return(

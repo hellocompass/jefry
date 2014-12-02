@@ -21,30 +21,8 @@
     width: 100%;
   }
 
-  .no-contacts {
-    color: $grey;
-    font-size: 3.16rem;
-    height: 100%;
-    line-height: 1.2;
-    text-align: center;
-
-    i {
-      font-size: 7.49rem;
-    }
-
-    p {
-      background: $grey;
-      color: $white;
-      font-size: 1.33rem;
-      line-height: 1.4;
-      margin: 10px 10px 35px;
-      padding: 5px;
-      text-align: left;
-
-      strong {
-        color: $black;
-      }
-    }
+  .flash-list-item {
+    margin: 10px 10px 0;
   }
 
   input {

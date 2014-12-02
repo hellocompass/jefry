@@ -5,12 +5,13 @@
 @import 'core';
 
 @import 'components/contacts/contact';
+@import 'components/contacts/request_contacts';
 @import 'components/core/app';
 @import 'components/core/navigation/nav_side_bar';
 @import 'components/core/navigation/nav_top_bar';
 @import 'components/groups/group_form';
 @import 'components/home';
-@import 'components/login/flash';
 @import 'components/login/login_form';
+@import 'components/shared/flash';
 
 @import 'index';

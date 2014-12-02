@@ -1,0 +1,25 @@
+.request-contacts-component {
+  color: $grey;
+  font-size: 3.16rem;
+  height: 100%;
+  line-height: 1.2;
+  text-align: center;
+
+  i {
+    font-size: 7.49rem;
+  }
+
+  p {
+    background: $black;
+    color: $grey;
+    font-size: 1.33rem;
+    line-height: 1.4;
+    margin: 10px 10px 35px;
+    padding: 10px;
+    text-align: left;
+
+    strong {
+      color: $white;
+    }
+  }
+}

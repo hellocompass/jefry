@@ -5,6 +5,19 @@
     width: 60%;
     font-size: 1.33rem;
   }
+
+  #flash-component {
+    left: 10px;
+    margin-bottom: 15px;
+    max-height: 5.62rem;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+
+    ul {
+      font-size: 0.75rem;
+    }
+  }
 }
 
 #email-signup-form {
