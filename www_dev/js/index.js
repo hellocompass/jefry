@@ -14,11 +14,12 @@ var SessionStore = require('./stores/session_store');
 var _readyEvents = [];
 
 var blackIn = {
+  env: 'production',
+
   initialize: function () {
-    this.bindEvents();
     blackIn.router = new BlackInRouter();
+    this.bindEvents();
     this.initializeHelpers();
-    blackIn.env = 'development';
     blackIn.bootstrapContext();
   },
 

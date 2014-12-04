@@ -5,7 +5,7 @@ var RoutesHelper = function () {
 
 var setUrlRoot = function () {
   if (blackIn.env === 'production') {
-    _urlRoot = 'http://blck.in';
+    _urlRoot = 'https://blackin.herokuapp.com';
   } else {
     _urlRoot = 'http://blck.dev:3000';
   }
