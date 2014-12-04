@@ -27,4 +27,4 @@ var RequestContacts = React.createClass({
   }
 });
 
-module.exports = RequestContacts
+module.exports = RequestContacts;
