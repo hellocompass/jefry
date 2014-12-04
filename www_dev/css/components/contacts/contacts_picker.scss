@@ -7,4 +7,8 @@
   position: absolute;
   top: 102px;
   width: 100%;
+
+  &.error-mode {
+    top: 170px;
+  }
 }

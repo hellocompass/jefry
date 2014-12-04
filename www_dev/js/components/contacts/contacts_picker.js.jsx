@@ -10,7 +10,14 @@ var ContactActions = require('../../actions/contact_actions');
 var ContactsPicker = React.createClass({
 
   getInitialState: function () {
-    return { contacts: ContactStore.contactsList() };
+    return {
+      contacts: ContactStore.contactsList(),
+      error: this.props.error
+    };
+  },
+
+  componentWillReceiveProps: function ( props ) {
+    this.setState({ error: props.error })
   },
 
   componentDidMount: function () {
@@ -36,7 +43,7 @@ var ContactsPicker = React.createClass({
 
   render: function () {
     return(
-      <ul class="contacts-picker-component" id="contacts-picker">
+      <ul className={ "contacts-picker-component" + (this.state.error ? " error-mode" : "") } id="contacts-picker">
         { this.contacts() }
       </ul>
     );

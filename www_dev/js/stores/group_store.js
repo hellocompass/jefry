@@ -33,14 +33,15 @@ var GroupStore = React.addons.update(EventEmitter.prototype, {$merge: {
   },
 
   getErrors: function () {
+    console.log('getting errors: ' + _pendingGroup.errors);
     return _pendingGroup.errors;
   },
 
-  addChangeListener: function( callback ) {
+  addChangeListener: function ( callback ) {
     this.on( CHANGE_EVENT, callback );
   },
 
-  removeChangeListener: function( callback ) {
+  removeChangeListener: function ( callback ) {
     this.off( CHANGE_EVENT, callback );
   },
 
@@ -48,7 +49,7 @@ var GroupStore = React.addons.update(EventEmitter.prototype, {$merge: {
     this.emit( CHANGE_EVENT );
   },
 
-  dispatchToken: AppDispatcher.register(function ( payload ) {
+  dispatchToken: AppDispatcher.register( function ( payload ) {
     var action = payload.action;
 
     switch( action.actionType ) {
