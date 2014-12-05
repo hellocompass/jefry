@@ -37,7 +37,11 @@ RoutesHelper.prototype.api_users_url = function () {
 
 RoutesHelper.prototype.group_path = function ( id ) {
   return '/groups/' + id;
-}
+};
+
+RoutesHelper.prototype.group_capture_path = function ( id ) {
+  return '/groups/' + id + '/capture';
+};
 
 RoutesHelper.prototype.new_group_path = function () {
   return '/groups/new';

@@ -1,0 +1,41 @@
+.capture-component {
+  display: block;
+  height: 100%;
+  margin-top: 57px;
+
+  form {
+    background: rgba(255,255,255,0.7);
+    bottom: 0;
+    left: 20px;
+    margin: 0;
+    position: absolute;
+    right: 20px;
+    top: 25%;
+  }
+
+  h4 {
+    margin: 0 0 10px 0;
+    padding: 10px;
+    background: $black;
+    text-align: center;
+  }
+
+  .form-inner-wrapper {
+    padding: 10px;
+  }
+
+  .form-input-fields {
+    border-bottom: solid $dark-grey 1px;
+    margin: 10px;
+    padding: 5px 10px 0;
+  }
+
+  input[type="submit"] {
+    background: $black;
+    border: none;
+    bottom: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+  }
+}

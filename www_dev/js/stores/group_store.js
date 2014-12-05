@@ -5,16 +5,35 @@ var AppDispatcher = require('../dispatchers/app_dispatcher');
 var ContactStore = require('./contact_store');
 var GroupActions = require('../actions/group_actions');
 var GroupConstants = require('../constants/group_constants');
+var RouterActions = require('../actions/router_actions');
+var UserActions = require('../actions/user_actions');
 
 var CHANGE_EVENT = 'change';
-var _groups;
+var _groups = {};
 var _pendingGroup = {};
 
 var setGroup = function ( group ) {
-  _groups[group.id] = group;
+  var users = pluckUsers( group );
+  return _groups[group.id] = group;
 };
 
-var GroupStore = React.addons.update(EventEmitter.prototype, {$merge: {
+var pluckUsers = function ( group ) {
+  if ( !group.users ) return;
+  var users, userCount;
+
+  users = group.users.slice();
+  userCount = users.length;
+
+  delete group.users;
+
+  for ( var i = 0; i < userCount; i++ ) {
+    users[i].group_id = group.id
+  };
+
+  return UserActions.notifyGroupUsers( users );
+};
+
+var GroupStore = React.addons.update( EventEmitter.prototype, {$merge: {
 
   getGroup: function ( id, callback ) {
     if ( _groups[id] ) return callback( _groups[id] );
@@ -81,7 +100,7 @@ var GroupStore = React.addons.update(EventEmitter.prototype, {$merge: {
       setGroup( response.data.group );
       _pendingGroup = {};
       RouterActions.navigate(
-        blackIn.helpers.routes.group_path( response.data.group.id )
+        blackIn.helpers.routes.group_capture_path( response.data.group.id )
       );
     } else if ( response.status === 400 ) {
       _pendingGroup.errors = response.data.errors;

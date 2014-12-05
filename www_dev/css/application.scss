@@ -10,9 +10,12 @@
 @import 'components/core/app';
 @import 'components/core/navigation/nav_side_bar';
 @import 'components/core/navigation/nav_top_bar';
+@import 'components/groups/capture';
 @import 'components/groups/group_form';
+@import 'components/groups/tag_picker';
 @import 'components/home';
 @import 'components/login/login_form';
 @import 'components/shared/flash';
+@import 'components/shared/selectable';
 
 @import 'index';

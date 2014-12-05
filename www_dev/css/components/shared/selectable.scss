@@ -1,0 +1,69 @@
+.selectable {
+  padding: 0 3px;
+
+  &.active {
+    .toggle-state {
+      .icon {
+        background: transparent;
+        border: solid $black 2px;
+        border-radius: 3px;
+        color: $black;
+
+        &:before {
+          content: '-';
+          line-height: 0.9rem;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+
+  .image-box {
+    @include flex(1 1 20%);
+  }
+
+  .image-wrapper {
+    border: solid $black 2px;
+    border-radius: 50px;
+    height: 50px;
+    overflow: hidden;
+    width: 50px;
+  }
+
+  .name {
+    @include flex(3 3 60%);
+    font-size: 1.33rem;
+    line-height: 45px;
+    margin: 0;
+    padding: 5px 0 0 15px;
+    vertical-align: middle;
+  }
+
+  .toggle-state {
+    @include flex(1 1 20%);
+    font-size: 1.33rem;
+    line-height: 45px;
+    margin: 0;
+    padding: 5px 0 0 20px;
+    text-align: center;
+    vertical-align: middle;
+
+    .icon {
+      background: $black;
+      border: solid $black 2px;
+      border-radius: 3px;
+      color: $white;
+      display: inline-block;
+      font-family: $sans_bold;
+      height: 1.2rem;
+      line-height: 1.1rem;
+      margin: 0;
+      vertical-align: middle;
+      width: 1.2rem;
+
+      &:before {
+        content: '+';
+      }
+    }
+  }
+}

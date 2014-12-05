@@ -1,24 +1,19 @@
 var React = require('react/addons');
+
 var TouchClick = require('../core/touch_click');
 
-var ContactActions = require('../../actions/contact_actions');
-
-var Contact = React.createClass({
+var TaggableUser = React.createClass({
 
   getInitialState: function () {
     return { active: false };
   },
 
-  componentWillReceiveProps: function ( props ) {
-    this.setState({ active: props.active });
-  },
-
   toggleSelected: function () {
-    ContactActions.toggleActive( this.props.contact.id );
+
   },
 
   getClass: function () {
-    return 'selectable contact-component' + ( this.state.active ? ' active' : '' );
+    return 'selectable taggable-user-component' + ( this.state.active ? ' active' : '' );
   },
 
   render: function () {
@@ -26,8 +21,8 @@ var Contact = React.createClass({
       <TouchClick handler={ this.toggleSelected }
                   nodeName="li"
                   className={ this.getClass() }
-                  id={ 'contact-component-' + this.props.key }>
-        <div className="contact-inner-wrapper flexible">
+                  id={ 'taggable-user-component-' + this.props.key }>
+        <div className="inner-wrapper flexible">
           <div className="image-box">
             <div className="image-wrapper">
               <img src="../img/logo.png" height="50" width="50" />
@@ -35,7 +30,7 @@ var Contact = React.createClass({
           </div>
 
           <p className="name">
-            { this.props.contact.name.formatted }
+            { this.props.user.username }
           </p>
 
           <p className="toggle-state">
@@ -47,4 +42,4 @@ var Contact = React.createClass({
   }
 });
 
-module.exports = Contact;
+module.exports = TaggableUser;

@@ -10,8 +10,10 @@ var ContactActions = require('../../actions/contact_actions');
 var ContactsPicker = React.createClass({
 
   getInitialState: function () {
+    contacts =
+      !!this.props.contacts ? this.props.contacts : ContactStore.contactsList()
     return {
-      contacts: ContactStore.contactsList(),
+      contacts: contacts,
       error: this.props.error
     };
   },
@@ -22,7 +24,7 @@ var ContactsPicker = React.createClass({
 
   componentDidMount: function () {
     ContactStore.addChangeListener( this._onChange );
-    ContactActions.getAll();
+    if ( !this.state.contacts ) ContactActions.getAll();
   },
 
   componentWillUnmount: function () {
